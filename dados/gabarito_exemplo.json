@@ -1,0 +1,132 @@
+{
+  "dataset": "manifestacoes_exemplo.json",
+  "origem": "https://github.com/Samuelptdd/Desafio_NLP_Aplicado",
+  "aviso": "ATENCAO: este gabarito NAO acompanha o dataset original. O repositorio do time nao contem arquivo de ground truth. Os pares abaixo foram identificados por LEITURA MANUAL das 40 manifestacoes, aplicando um criterio explicito e auditavel: duas manifestacoes sao duplicatas quando citam O MESMO LOCAL NOMEADO e descrevem O MESMO PROBLEMA. Qualquer pessoa pode conferir cada par lendo os dois textos. Se o time discordar de algum par, basta editar este arquivo e reexecutar o notebook.",
+  "criterio": "mesmo local nomeado + mesmo problema",
+  "total_manifestacoes": 40,
+  "pares_duplicados": [
+    {
+      "par": ["M001", "M023"],
+      "rotulo": "DUP-1",
+      "tema": "calcada destruida na Rua das Flores",
+      "local_compartilhado": "Rua das Flores",
+      "dificuldade": "baixa",
+      "motivo": "vocabulario muito proximo: 'quebrada/destruida', 'pedras soltas' literal nos dois"
+    },
+    {
+      "par": ["M002", "M037"],
+      "rotulo": "DUP-2",
+      "tema": "assaltos no ponto de onibus da Rua XV no periodo noturno",
+      "local_compartilhado": "ponto de onibus da Rua XV",
+      "dificuldade": "baixa",
+      "motivo": "'assaltos frequentes' x 'alvo constante de assaltos'; 'a noite' x 'periodo noturno'"
+    },
+    {
+      "par": ["M003", "M017"],
+      "rotulo": "DUP-3",
+      "tema": "pavimento destruido na avenida principal",
+      "local_compartilhado": "Av. Brasil / avenida principal",
+      "dificuldade": "alta",
+      "motivo": "PAR OBRIGATORIO DO ENUNCIADO. Parafrase sem sobreposicao lexical: 'buraco' x 'esburacado/cratera', 'Av. Brasil' x 'avenida principal'. O notebook da Entrega 1 mediu TF-IDF = 0.000 neste par."
+    },
+    {
+      "par": ["M006", "M026"],
+      "rotulo": "DUP-4",
+      "tema": "perturbacao do sossego por som alto de bar na Praca Central",
+      "local_compartilhado": "bar da Praca Central",
+      "dificuldade": "media",
+      "motivo": "'som alto' x 'barulho excessivo / musica alta'; 'ate as 3 da manha' x 'toda a madrugada'"
+    },
+    {
+      "par": ["M008", "M022"],
+      "rotulo": "DUP-5",
+      "tema": "unidade de saude da Vila Nova sem medico",
+      "local_compartilhado": "Vila Nova",
+      "dificuldade": "alta",
+      "motivo": "PAR OBRIGATORIO DO ENUNCIADO. Sinonimos institucionais: 'posto de saude' x 'PSF', 'medico' x 'clinico geral'."
+    },
+    {
+      "par": ["M009", "M025"],
+      "rotulo": "DUP-6",
+      "tema": "falta de medicamento para pressao no posto do Centro",
+      "local_compartilhado": "posto do Centro",
+      "dificuldade": "media",
+      "motivo": "'falta de remedio' x 'nao tem remedio'; 'mae hipertensa/losartana' x 'pai precisa de medicamento para pressao'"
+    },
+    {
+      "par": ["M010", "M033"],
+      "rotulo": "DUP-7",
+      "tema": "ar-condicionado quebrado na creche Pequeno Principe",
+      "local_compartilhado": "creche Pequeno Principe",
+      "dificuldade": "baixa",
+      "motivo": "praticamente a mesma frase reescrita: 'quebrado' x 'estragado', 'passam mal com o calor' x 'sofrem com o calor'"
+    },
+    {
+      "par": ["M016", "M040"],
+      "rotulo": "DUP-8",
+      "tema": "despejo industrial no corrego Agua Limpa",
+      "local_compartilhado": "corrego Agua Limpa",
+      "dificuldade": "media",
+      "motivo": "'fabrica despejando residuos' x 'despejo de efluentes de uma industria'; 'agua escura' e 'peixes mortos' nos dois"
+    }
+  ],
+  "pares_controle_negativos_dificeis": [
+    {
+      "par": ["M008", "M031"],
+      "esperado": "NAO duplicata",
+      "motivo": "PAR DE CONTROLE DO ENUNCIADO. Temas e categorias distintos (saude x iluminacao publica). Serve de piso de similaridade do corpus."
+    },
+    {
+      "par": ["M017", "M030"],
+      "esperado": "NAO duplicata",
+      "motivo": "os dois falam de problema numa avenida, mas um e pavimento destruido e outro e racha de automoveis. Compartilham 'avenida' e o contexto de transito."
+    },
+    {
+      "par": ["M011", "M024"],
+      "esperado": "NAO duplicata",
+      "motivo": "ambos sao textos LONGOS e formais que comecam com 'Venho...'. A semelhanca e de REGISTRO e estrutura, nao de assunto: um e drenagem, outro e furtos."
+    },
+    {
+      "par": ["M011", "M036"],
+      "esperado": "NAO duplicata",
+      "motivo": "mesmo efeito do par anterior: dois textos longos e formais. Um e drenagem na Rua Goias, outro e poluicao no bairro Recanto Verde."
+    },
+    {
+      "par": ["M004", "M021"],
+      "esperado": "NAO duplicata",
+      "motivo": "ambos sao descarte irregular de lixo, mas em LOCAIS DIFERENTES (Rua Parana x Rua Amazonas). Pelo criterio adotado, local distinto = manifestacao distinta."
+    },
+    {
+      "par": ["M008", "M009"],
+      "esperado": "NAO duplicata",
+      "motivo": "ambos citam 'posto', mas locais diferentes (Vila Nova x Centro) e problemas diferentes (falta medico x falta remedio)."
+    },
+    {
+      "par": ["M013", "M029"],
+      "esperado": "NAO duplicata",
+      "motivo": "ambos sao demora no atendimento de saude, mas um e espera na UPA e outro e fila para consulta com especialista."
+    },
+    {
+      "par": ["M018", "M031"],
+      "esperado": "NAO duplicata",
+      "motivo": "ambos sao iluminacao publica apagada, mas em locais diferentes (passarela sobre a rodovia x praca da Matriz)."
+    },
+    {
+      "par": ["M001", "M028"],
+      "esperado": "NAO duplicata",
+      "motivo": "ambos mencionam calcada e risco ao pedestre, mas um e pavimento da calcada e outro e poste caido com fios soltos."
+    }
+  ],
+  "pares_exigidos_entrega_1": [
+    {"par": ["M003", "M017"], "esperado": "duplicata semantica"},
+    {"par": ["M008", "M022"], "esperado": "duplicata semantica"},
+    {"par": ["M008", "M031"], "esperado": "nao relacionados"}
+  ],
+  "manifestacoes_longas": [
+    {"id": "M036", "caracteres": 712},
+    {"id": "M011", "caracteres": 709},
+    {"id": "M024", "caracteres": 702},
+    {"id": "M020", "caracteres": 699},
+    {"id": "M029", "caracteres": 682}
+  ]
+}
