@@ -1,0 +1,7 @@
+# Impede que o Git converta quebras de linha em arquivos binarios.
+# Sem isto, um PDF commitado no Windows pode ser corrompido pela conversao
+# automatica de LF para CRLF.
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.ipynb -text
