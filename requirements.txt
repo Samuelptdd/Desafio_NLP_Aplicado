@@ -1,0 +1,53 @@
+# ---------------------------------------------------------------------------
+# Ouvidoria Inteligente - Triagem Semantica de Manifestacoes Cidadas
+# Desafio de NLP Aplicado
+#
+# INSTALACAO (Windows / PowerShell)
+#
+#     py -m venv .venv
+#     .\.venv\Scripts\Activate.ps1
+#     pip install -r requirements.txt
+#
+# RODAR O APP (Entrega 4)
+#
+#     streamlit run app_ouvidoria.py
+#
+# RODAR OS NOTEBOOKS (Entregas 1, 2 e 3)
+#
+#     jupyter lab
+#
+# OBSERVACAO: na primeira execucao o sentence-transformers baixa o modelo de
+# embedding do HuggingFace (~470 MB para o MiniLM). Depois disso fica em cache
+# local e funciona sem internet.
+#
+# Ambiente testado em Windows 11 / Python 3.14.
+# ---------------------------------------------------------------------------
+
+# --- Nucleo numerico e manipulacao de dados --------------------------------
+numpy>=2.0
+pandas>=2.2
+
+# --- Representacoes classicas (BoW, TF-IDF), PCA, t-SNE, metricas ----------
+# Usado nas Entregas 1, 2, 3 e 4.
+scikit-learn>=1.5
+
+# --- Embeddings densos multilingues ----------------------------------------
+# Traz o torch e o transformers como dependencia.
+sentence-transformers>=3.0
+
+# --- Chunking (Entrega 3 e aba de Chunking do app) -------------------------
+# O RecursiveCharacterTextSplitter mora neste pacote enxuto; nao e preciso
+# instalar o "langchain" completo.
+langchain-text-splitters>=0.3
+
+# --- Visualizacao -----------------------------------------------------------
+matplotlib>=3.9          # graficos dos notebooks
+seaborn>=0.13            # heatmaps dos notebooks
+plotly>=5.22             # graficos interativos do app
+
+# --- Aplicacao web (Entrega 4) ---------------------------------------------
+streamlit>=1.37
+
+# --- Notebooks (Entregas 1, 2 e 3) -----------------------------------------
+jupyter>=1.1
+ipykernel>=6.29
